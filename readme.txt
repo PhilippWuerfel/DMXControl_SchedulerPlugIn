@@ -1,9 +1,55 @@
-Verwenden Sie bitte die vorgegebene Struktur.
+In diesem Dokument tragen Sie bitte ein, ob und was für die Lauffähigkeit Ihres Programms getan werden muss.
+In diesem Ordner liegt die Haupt-sln, in Unterordnern werden die einzelnen Komponenten-Projekte abgelegt.
 
-Wenn Sie Studio-Projekte aufnehmen, achten Sie auf saubere Ignore-Pattern-Einstellungen, damit z.B. bin- und obj-Ordner nicht eingecheckt werden. Vorschläge für Studio-AddIns wie ANKH und eine Global-Ignore-Pattern-Vorlage für svn finden Sie im Odner Einrichtung direkt unterhalb des Repository-Stammordners.
+%%%%% >Scheduler GUI - Philipp Würfel< %%%%%
 
-Die Pflichtenheft-Dinge kommen in den Pflichtenheft-Ordner. Wenn Sie im Rahmen des Pflichtenheftes Dinge anprogrammieren, liegen die Projekte dazu im Pflichtenheft-Ordner. Erstellen Sie sinnvolle Unterordner für eine saubere Organisation.
+1. DMX Control 3 installieren (getestete Version: v3.1.3)
 
-Die in Step 2 und 3 programmierten Dinge kommen in den Programm-Ordner.
 
-Heruntergeladene oder bereitgestellte Dokumente wie Beschreibungen usw. legen Sie im Sonstige Dokumente-Ordner ab.
+In Visual Studio:
+
+2. Projekt "SchedulerPlugin" -> Properties -> Buildereignisse -> Postbuildereignis überprüfen 
+und Pfad bei abweichender DMXControl-Installation ändern
+Musterbeispiel: copy "$(ProjectDir)$(OutDir)\SchedulerPlugin.dll"  "C:\Program Files (x86)\DMXControl3\GUI\Plugins"
+Postbuildereignisse müssen für folgende Klassenbibliotheken hinzugefügt werden:
+	- SchedulerPlugin.dll (opt.: + SchedulerPlugin.pdb) 
+	- DMXCommunicatorDummy.dll (opt.: + DMXCommunicatorDummy.pdb)
+	- SchedulerAppointment.dll (opt.: + SchedulerAppointment.pdb)
+(Für Installation im x86-Ordner von Windows muss Visual Studio mit Administratorrechten gestartet werden 
+und DMXControl darf nicht geöffnet sein)
+
+3. Unter Properties von "SchedulerPlugin" Verweispfad zum GUI Ordner überprüfen/setzen
+(Bsp.: "C:\Program Files (x86)\DMXControl3\GUI")
+
+4. In den Projektmappen "SchedulerPlugin" und "DMXControlScheduler" folgende Verweise (aus GUI-Ordner, wie im Verweispfad) hinzufügen oder deren Pfad aktualisieren:
+	- LumosGUILIB.dll
+	- LumosGUI.exe
+	- WeifenLuo.WinFormsUI.Docking.dll
+	- LumosLIB.dll
+
+5. Projektmappe "SchedulerPlugin" als Startprojekt festlegen
+
+6. Unter Properties -> Debuggen -> "Externes Programm starten" mit Pfad zur "LumosGUI.exe" von DMX-Control
+Musterbeispiel: C:\Program Files (x86)\DMXControl3\GUI\LumosGUI.exe
+
+--> In dieser Variante kann DMXControl in Visual Studio debuggt werden, zusätzlich werden die notwendigen dll's in den Plugins Ordner von DMXControl kopiert. Auf das PlugIn kann danach auch außerhalb von VisualStudio in DMXControl zugegriffen werden.
+
+Für die Aktivierung des PlugIns in DMXControl:
+	a) Reiter Settings -> Plugin Management : Haken bei Scheduler Plugin setzen
+	b) Reiter Windows -> Scheduler Plug In : anklicken, fenster öffnet sich (manchmal im oberen, oder unteren Bereich von DMXControl, in diesem Fall entsprechend "hochziehen"
+
+
+Mögliche Fehlerbehebungen:
+
+- Bei Laufzeitproblemen unter Properties bei Build das Plattformziel auf x86 setzen
+- Wenn Funktionen/Buttons in DMX Control nicht funktionieren: 
+Projekt DMXControlScheduler als Startprojekt festlegen und starten, 
+danach in dessen Debug-Ordner gehen und alle fehlenden Dll's und .pdb-Dateien 
+(außer DMXControlScheduler.dll, *pdb) in den DMXControl/GUI/Plugins Ordner kopieren
+
+%%%%% >Communicator Oliver Lopes< %%%%%
+
+7. Die Lauffähigkeit vom Communicator kann nur mit DMX Control 3 und vorhandenen Cuelist in DMX überprüft werden. Folgende Verweise hinzufügen. 
+        - LumosGUILIB.dll
+	- LumosGUI.exe
+        - LumosLIB.dll
