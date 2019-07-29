@@ -21,7 +21,7 @@ und DMXControl darf nicht geöffnet sein)
 3. Unter Properties von "SchedulerPlugin" Verweispfad zum GUI Ordner überprüfen/setzen
 (Bsp.: "C:\Program Files (x86)\DMXControl3\GUI")
 
-4. In den Projektmappen "SchedulerPlugin" und "DMXControlScheduler" folgende Verweise (aus GUI-Ordner, wie im Verweispfad) hinzufügen oder deren Pfad aktualisieren:
+4. In den Projektmappen "SchedulerPlugin" folgende Verweise (aus GUI-Ordner, wie im Verweispfad) hinzufügen oder deren Pfad aktualisieren:
 	- LumosGUILIB.dll
 	- LumosGUI.exe
 	- WeifenLuo.WinFormsUI.Docking.dll
@@ -33,6 +33,9 @@ und DMXControl darf nicht geöffnet sein)
 Musterbeispiel: C:\Program Files (x86)\DMXControl3\GUI\LumosGUI.exe
 
 --> In dieser Variante kann DMXControl in Visual Studio debuggt werden, zusätzlich werden die notwendigen dll's in den Plugins Ordner von DMXControl kopiert. Auf das PlugIn kann danach auch außerhalb von VisualStudio in DMXControl zugegriffen werden.
+
+
+In DMX-Control
 
 Für die Aktivierung des PlugIns in DMXControl:
 	a) Reiter Settings -> Plugin Management : Haken bei Scheduler Plugin setzen
@@ -46,8 +49,3 @@ Mögliche Fehlerbehebungen:
 Projekt DMXControlScheduler als Startprojekt festlegen und starten, 
 danach in dessen Debug-Ordner gehen und alle fehlenden Dll's und .pdb-Dateien 
 (außer DMXControlScheduler.dll, *pdb) in den DMXControl/GUI/Plugins Ordner kopieren
-
-7. Die Lauffähigkeit vom Communicator kann nur mit DMX Control 3 und vorhandenen Cuelist in DMX überprüft werden. Folgende Verweise hinzufügen. 
-        - LumosGUILIB.dll
-	- LumosGUI.exe
-        - LumosLIB.dll
