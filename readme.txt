@@ -1,6 +1,3 @@
-In diesem Dokument tragen Sie bitte ein, ob und was für die Lauffähigkeit Ihres Programms getan werden muss.
-In diesem Ordner liegt die Haupt-sln, in Unterordnern werden die einzelnen Komponenten-Projekte abgelegt.
-
 %%%%% >Scheduler GUI - Philipp Würfel< %%%%%
 
 1. DMX Control 3 installieren (getestete Version: v3.1.3)
@@ -46,8 +43,6 @@ Mögliche Fehlerbehebungen:
 Projekt DMXControlScheduler als Startprojekt festlegen und starten, 
 danach in dessen Debug-Ordner gehen und alle fehlenden Dll's und .pdb-Dateien 
 (außer DMXControlScheduler.dll, *pdb) in den DMXControl/GUI/Plugins Ordner kopieren
-
-%%%%% >Communicator Oliver Lopes< %%%%%
 
 7. Die Lauffähigkeit vom Communicator kann nur mit DMX Control 3 und vorhandenen Cuelist in DMX überprüft werden. Folgende Verweise hinzufügen. 
         - LumosGUILIB.dll
