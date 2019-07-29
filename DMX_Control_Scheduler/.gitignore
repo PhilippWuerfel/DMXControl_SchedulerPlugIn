@@ -12,7 +12,6 @@ obj/
 debug/
 release/
 ignore/
-SchedulerTimer/
 
 *.user
 references
