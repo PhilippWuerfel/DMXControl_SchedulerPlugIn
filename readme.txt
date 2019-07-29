@@ -10,8 +10,11 @@ und Pfad bei abweichender DMXControl-Installation ändern
 Musterbeispiel: copy "$(ProjectDir)$(OutDir)\SchedulerPlugin.dll"  "C:\Program Files (x86)\DMXControl3\GUI\Plugins"
 Postbuildereignisse müssen für folgende Klassenbibliotheken hinzugefügt werden:
 	- SchedulerPlugin.dll (opt.: + SchedulerPlugin.pdb) 
-	- DMXCommunicatorDummy.dll (opt.: + DMXCommunicatorDummy.pdb)
+	- SchedulerCommunicator.dll (opt.: + SchedulerCommunicator.pdb)
 	- SchedulerAppointment.dll (opt.: + SchedulerAppointment.pdb)
+	- SchedulerLogFileWriter.dll (opt.: + SchedulerLogFileWriter.pdb)
+	- SchedulerTimer.dll" (opt.: + SchedulerTimer.pdb)
+	
 (Für Installation im x86-Ordner von Windows muss Visual Studio mit Administratorrechten gestartet werden 
 und DMXControl darf nicht geöffnet sein)
 
