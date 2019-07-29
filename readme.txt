@@ -1,5 +1,12 @@
 %%%%% >Scheduler GUI - Philipp Würfel< %%%%%
 
+# Für Benutzung
+
+Dateien aus dem Ordner SchedulerPlugIn_DLL in den PlugIn-Ordner von DMXControl ablegen
+(Bspw.: C:\Program Files (x86)\DMXControl3\GUI\Plugins)
+
+# Für Entwiclung
+
 1. DMX Control 3 installieren (getestete Version: v3.1.3)
 
 
